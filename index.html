@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="wrap">
+    <header id="header">
+        <div class="headerMain">
+            <h1 class="logo"><a href="javascript:;"><img src="img/logo.png"></a></h1>
+            <nav class="nav">
+                <ul class="navList clearfix">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="down"><img src="img/home.png"></div>
+                            <div class="up"><img src="img/home_gruen.png"></div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="down">Course</div>
+                            <div class="up">Course</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="down">Works</div>
+                            <div class="up">Works</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="down">About</div>
+                            <div class="up">About</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="down">Team</div>
+                            <div class="up">Team</div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="arrow"><img src="img/arrow.png"></div>
+        </div>
+
+    </header>
+    <section id="content">
+
+    </section>
+</div>
+</body>
+<script type="text/javascript">
+    window.onload=function(){
+        var navLis=document.querySelectorAll('#header .headerMain .nav li');
+        var navUps=document.querySelectorAll('#header .headerMain .nav li .up');
+        var arrow=document.querySelector('.arrow');
+
+        arrow.style.left=navLis[0].getBoundingClientRect().left+navLis[0].offsetWidth/2+'px';
+
+        for (var i = 0; i < navLis.length; i++) {
+            navLis[i].index=i;
+            navLis[i].onclick=function(){
+                for (var i = 0; i < navUps.length; i++) {
+                    navUps[i].style.width='';
+                }
+                navUps[this.index].style.width='100%';
+                arrow.style.left=navLis[this.index].getBoundingClientRect().left+navLis[this.index].offsetWidth/2+'px';
+            }
+
+        }
+    }
+
+
+
+</script>
+</html>
